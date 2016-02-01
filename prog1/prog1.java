@@ -1,4 +1,7 @@
 //Programa 1 da lista 2 Estrutura de dados
+import java.util.Calendar;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 class ContaBancaria{
   //Atributos
   private String cliente;
@@ -56,17 +59,21 @@ class ContaBancaria{
 
 
 class ContaPoupanca extends ContaBancaria{
-  private int dia_de_rendimento;
+  private String dia_de_rendimento;
   private double taxa;
+  SimpleDateFormat sdf = new SimpleDateFormat("dd");
 
   public ContaPoupanca(String Cliente, int Num_Conta, double Saldo, double Taxa){
     super(Cliente, Num_Conta, Saldo);
-    this.taxa = Taxa;
+    this.taxa = 0.05;
+    this.dia_de_rendimento = "01";
   }
   
 
-  void calcularNovoSaldo(double Taxa){
-    super.setSaldo(super.getSaldo()+(super.getSaldo()*Taxa));
+  void calcularNovoSaldo(){
+    if (sdf.format(Calendar.getInstance().getTime()).equals(String.valueOf(dia_de_rendimento))) {
+            super.setSaldo(super.getSaldo() + (super.getSaldo() * this.taxa));
+        }
   }
 }
 

@@ -13,7 +13,7 @@ public class Contas{
 
     obj1.mostraDados();
 
-    obj1.calcularNovoSaldo(0.05);
+    obj1.calcularNovoSaldo();
 
     obj1.mostraDados();
 
